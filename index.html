@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yos Valiandy | Offline Conversion & AI Ads Specialist</title>
+    <meta name="description" content="Portfolio of Yos Valiandy. Specializing in Offline Conversions, Google Ads AI (PMax), Meta Ads, Looker Studio & Gemini AI Strategy.">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Yos Valiandy | Performance Marketing Lead">
+    <meta property="og:description" content="Driving 20x ROAS with Offline Conversions & AI Ads. See my case studies.">
+    <meta property="og:image" content="assets/profile.jpg">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        /* --- THEME CONFIGURATION --- */
+        :root {
+            --bg-body: #F8FAFC;
+            --bg-card: #FFFFFF;
+            --text-main: #1E293B;
+            --text-muted: #64748B;
+            --border-color: #E2E8F0;
+            --accent: #2563EB;
+            --accent-green: #10B981;
+            --section-alt: #F1F5F9;
+        }
+
+        [data-theme="dark"] {
+            --bg-body: #0F172A;
+            --bg-card: #1E293B;
+            --text-main: #F8FAFC;
+            --text-muted: #94A3B8;
+            --border-color: #334155;
+            --accent: #60A5FA;
+            --section-alt: #020617;
+        }
+
+        body { 
+            background-color: var(--bg-body); 
+            color: var(--text-main); 
+            font-family: 'Inter', sans-serif; 
+            transition: background 0.3s, color 0.3s;
+            overflow-x: hidden;
+        }
+
+        /* Components Override */
+        .card, .accordion-item, .list-group-item { background-color: var(--bg-card); border-color: var(--border-color); color: var(--text-main); }
+        h1, h2, h3, h4, h5, h6 { color: var(--text-main); }
+        .text-muted { color: var(--text-muted) !important; }
+
+        /* Navbar */
+        .navbar { background-color: var(--bg-card); border-bottom: 1px solid var(--border-color); padding: 15px 0; }
+        .navbar-brand, .nav-link { color: var(--text-main) !important; font-weight: 600; }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 160px 0 100px;
+            background: linear-gradient(135deg, #0F172A 0%, #172554 100%);
+            color: #ffffff !important;
+        }
+        .hero-section p, .hero-section h1, .hero-section small, .hero-section .text-white-50 { color: rgba(255,255,255,0.95) !important; }
+
+        /* Client Tags */
+        .client-tag {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            white-space: nowrap;
+            transition: 0.2s;
+            cursor: default;
+        }
+        .client-tag:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+        .client-tag.combo { border-color: #F59E0B; color: #D97706; background-color: rgba(245, 158, 11, 0.1); }
+        [data-theme="dark"] .client-tag.combo { color: #FCD34D; }
+
+        /* Custom Cards */
+        .card-custom {
+            border-radius: 16px;
+            padding: 25px;
+            height: 100%;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid var(--border-color);
+            background: var(--bg-card);
+        }
+        .card-custom:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+
+        /* Comparison Table */
+        .comparison-table { width: 100%; font-size: 0.9rem; }
+        .comparison-table td { padding: 8px 0; border-bottom: 1px solid var(--border-color); }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .val-before { color: var(--text-muted); text-decoration: line-through; opacity: 0.7; font-size: 0.85rem; }
+        .val-after { color: var(--accent-green); font-weight: 700; }
+
+        /* Floating Buttons */
+        .theme-toggle {
+            position: fixed; bottom: 30px; right: 30px; z-index: 1000;
+            background: var(--accent); color: white; border: none;
+            border-radius: 50%; width: 50px; height: 50px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3); cursor: pointer; transition: 0.2s;
+        }
+        .floating-wa {
+            position: fixed; bottom: 30px; left: 30px; z-index: 1000;
+            background: #25D366; color: white; border: none;
+            border-radius: 50%; width: 50px; height: 50px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 24px; text-decoration: none; transition: 0.2s;
+        }
+        .theme-toggle:hover, .floating-wa:hover { transform: scale(1.1); color: white; }
+        
+        .bg-alt { background-color: var(--section-alt); }
+
+        /* Tech Stack Marquee */
+        .marquee-container { width: 100%; overflow: hidden; white-space: nowrap; position: relative; padding: 20px 0; }
+        .marquee-content { display: inline-block; animation: marquee 25s linear infinite; }
+        .tech-item { display: inline-block; padding: 0 30px; font-size: 1.1rem; color: var(--text-muted); font-weight: 600; opacity: 0.8; }
+        .tech-item i { color: var(--accent); margin-right: 8px; }
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">Yos Valiandy<span style="color: var(--accent);">.</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon" style="filter: invert(0.5);"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center gap-3">
+                    <li class="nav-item"><a class="nav-link" href="#clients">Clients</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#results">Results</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#certificates">Credentials</a></li>
+                    <li class="nav-item"><a class="btn btn-primary btn-sm px-4 fw-bold border-0" href="https://wa.me/6287887046946?text=Halo%20Yos,%20saya%20tertarik%20dengan%20jasa%20Anda.%20Boleh%20diskusi?" target="_blank" style="background-color: var(--accent);">Hire Me</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7 mb-5 mb-lg-0 text-center text-lg-start" data-aos="fade-right">
+                    <div class="d-inline-flex align-items-center bg-white bg-opacity-10 rounded-pill px-3 py-1 mb-4 border border-white border-opacity-25">
+                        <span class="badge bg-success me-2">Available</span> 
+                        <small class="fw-semibold text-white">Performance Marketing Lead</small>
+                    </div>
+                    <h1 class="display-4 fw-bold mb-4">Mastering <span class="text-info">Offline Conversions</span> & AI Ads.</h1>
+                    <p class="lead mb-5 text-white-50">
+                        I bridge the gap between online ads and real-world sales. Specializing in <strong>Google Ads (OCT & AI Max)</strong>, <strong>Looker Studio</strong>, and <strong>Gemini AI Strategy</strong>.
+                    </p>
+                    <div class="d-flex gap-3 justify-content-center justify-content-lg-start">
+                        <a href="#results" class="btn btn-primary btn-lg fw-bold border-0" style="background-color: var(--accent);">View Case Studies</a>
+                        <a href="https://wa.me/6287887046946?text=Halo%20Yos,%20saya%20tertarik%20dengan%20jasa%20Anda.%20Boleh%20diskusi?" class="btn btn-outline-light btn-lg fw-bold">WhatsApp Me</a>
+                    </div>
+                </div>
+                <div class="col-lg-5 text-center" data-aos="fade-left">
+                    <img src="GoogleAdsPlace.jpeg" alt="Yos Valiandy" class="rounded-circle shadow-lg border border-4 border-white border-opacity-25 mb-4" style="width: 200px; height: 200px; object-fit: cover;">
+                    <div class="row g-2 justify-content-center">
+                        <div class="col-4">
+                            <div class="bg-white bg-opacity-10 p-2 rounded border border-white border-opacity-10">
+                                <h4 class="fw-bold mb-0 text-warning">1B+</h4>
+                                <small class="text-white-50">Revenue</small>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="bg-white bg-opacity-10 p-2 rounded border border-white border-opacity-10">
+                                <h4 class="fw-bold mb-0 text-info">38+</h4>
+                                <small class="text-white-50">Clients</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="clients" class="py-5 bg-alt">
+        <div class="container" data-aos="fade-up">
+            <div class="text-center mb-4">
+                <p class="text-uppercase fw-bold text-muted small ls-1">Trusted by 38+ Companies & Brands</p>
+            </div>
+            <div class="d-flex flex-wrap justify-content-center gap-2">
+                <div class="client-tag combo"><i class="fas fa-layer-group me-2"></i>Kokainterior</div>
+                <div class="client-tag combo"><i class="fas fa-layer-group me-2"></i>Kurato (CPAS)</div>
+                <div class="client-tag combo"><i class="fas fa-layer-group me-2"></i>Dr Beauty Clinic</div>
+                <div class="client-tag combo"><i class="fas fa-layer-group me-2"></i>StoryBlast</div>
+                <div class="client-tag combo"><i class="fas fa-layer-group me-2"></i>SmartAir</div>
+                <div class="client-tag combo"><i class="fas fa-layer-group me-2"></i>Liquid Agency</div>
+
+                <div class="client-tag"><i class="fab fa-google text-primary me-2"></i>Alhijaz</div>
+                <div class="client-tag"><i class="fab fa-google text-primary me-2"></i>Aztekindo</div>
+                <div class="client-tag"><i class="fab fa-google text-primary me-2"></i>Empire Pro</div>
+                <div class="client-tag"><i class="fab fa-google text-primary me-2"></i>Evermos</div>
+                <div class="client-tag"><i class="fab fa-google text-primary me-2"></i>Myfitsociety</div>
+                <div class="client-tag"><i class="fab fa-google text-primary me-2"></i>Pusat Lifting</div>
+                <div class="client-tag"><i class="fab fa-google text-primary me-2"></i>Berkah Cipta</div>
+                <div class="client-tag"><i class="fab fa-google text-primary me-2"></i>Terpal.id</div>
+                <div class="client-tag"><i class="fab fa-google text-primary me-2"></i>Royal Ambulans</div>
+
+                <div class="client-tag"><i class="fab fa-facebook text-info me-2"></i>Cergas Consultant</div>
+                <div class="client-tag"><i class="fab fa-facebook text-info me-2"></i>SMO</div>
+                <div class="client-tag"><i class="fab fa-facebook text-info me-2"></i>Njanan</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-4 border-bottom bg-alt" style="overflow: hidden;">
+        <div class="container">
+            <p class="text-center text-muted small fw-bold text-uppercase mb-4">Powered by Advanced Tech Stack</p>
+            <div class="marquee-container">
+                <div class="marquee-content">
+                    <span class="tech-item"><i class="fas fa-robot"></i>Gemini AI</span>
+                    <span class="tech-item"><i class="fas fa-chart-bar"></i>Looker Studio</span>
+                    <span class="tech-item"><i class="fab fa-python"></i>Python</span>
+                    <span class="tech-item"><i class="fas fa-database"></i>SQL</span>
+                    <span class="tech-item"><i class="fab fa-google"></i>GA4</span>
+                    <span class="tech-item"><i class="fas fa-tag"></i>GTM</span>
+                    <span class="tech-item"><i class="fas fa-search"></i>Semrush</span>
+                    <span class="tech-item"><i class="fab fa-wordpress"></i>WordPress</span>
+                    <span class="tech-item"><i class="fas fa-robot"></i>Gemini AI</span>
+                    <span class="tech-item"><i class="fas fa-chart-bar"></i>Looker Studio</span>
+                    <span class="tech-item"><i class="fab fa-python"></i>Python</span>
+                    <span class="tech-item"><i class="fas fa-database"></i>SQL</span>
+                    <span class="tech-item"><i class="fab fa-google"></i>GA4</span>
+                    <span class="tech-item"><i class="fas fa-tag"></i>GTM</span>
+                    <span class="tech-item"><i class="fas fa-search"></i>Semrush</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="results" class="py-5">
+        <div class="container py-4">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h5 class="text-primary fw-bold text-uppercase small" style="color: var(--accent) !important;">Proven Track Record</h5>
+                <h2 class="fw-bold">Real Numbers. Real Growth.</h2>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-custom h-100">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div><span class="badge bg-primary mb-2">Google Ads</span><h4 class="h5 fw-bold mb-0">10x Revenue Scaling</h4><small class="text-muted">Retail / UMKM Scaling</small></div>
+                            <div class="text-end"><h3 class="fw-bold text-success mb-0">30x</h3><small class="text-muted">ROAS</small></div>
+                        </div>
+                        <div class="p-3 rounded mb-3 bg-alt">
+                            <table class="comparison-table">
+                                <tr><td class="text-muted">Metric</td><td class="text-center">Before</td><td class="text-end">After</td></tr>
+                                <tr><td class="metric-label">Revenue</td><td class="text-center val-before">10-20jt</td><td class="text-end val-after">100-200jt</td></tr>
+                                <tr><td class="metric-label">CPL</td><td class="text-center val-before">Rp 20.000</td><td class="text-end val-after">Rp 15.000</td></tr>
+                            </table>
+                        </div>
+                        <p class="small text-muted mb-0"><i class="fas fa-check-circle text-success me-1"></i> Scaled budget efficiently without increasing CPA.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-custom h-100">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div><span class="badge bg-primary mb-2">Google Ads</span><h4 class="h5 fw-bold mb-0">The 1 Billion Milestone</h4><small class="text-muted">High Ticket / Corporate</small></div>
+                            <div class="text-end"><h3 class="fw-bold text-success mb-0">1.2M</h3><small class="text-muted">Revenue</small></div>
+                        </div>
+                        <div class="p-3 rounded mb-3 bg-alt">
+                            <table class="comparison-table">
+                                <tr><td class="text-muted">Metric</td><td class="text-center">Before</td><td class="text-end">After</td></tr>
+                                <tr><td class="metric-label">Ad Spend</td><td class="text-center">60jt</td><td class="text-end fw-bold">60jt (Same)</td></tr>
+                                <tr><td class="metric-label">Revenue</td><td class="text-center val-before">120-250jt</td><td class="text-end val-after">800jt - 1.2M</td></tr>
+                                <tr><td class="metric-label">CPL</td><td class="text-center val-before">Rp 30.000</td><td class="text-end val-after">Rp 20.000</td></tr>
+                            </table>
+                        </div>
+                        <p class="small text-muted mb-0"><i class="fas fa-check-circle text-success me-1"></i> Massive ROAS improvement from 3x to ~18x.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-custom h-100">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div><span class="badge bg-info text-dark mb-2">Meta Ads</span><h4 class="h5 fw-bold mb-0">Quality Over Quantity</h4><small class="text-muted">Lead Gen Strategy</small></div>
+                            <div class="text-end"><h3 class="fw-bold text-success mb-0">SQL</h3><small class="text-muted">Quality</small></div>
+                        </div>
+                        <div class="p-3 rounded mb-3 bg-alt">
+                            <table class="comparison-table">
+                                <tr><td class="text-muted">Metric</td><td class="text-center">Before</td><td class="text-end">After</td></tr>
+                                <tr><td class="metric-label">Budget</td><td class="text-center">15jt</td><td class="text-end fw-bold">15jt (Same)</td></tr>
+                                <tr><td class="metric-label">Volume</td><td class="text-center">500 Leads</td><td class="text-end fw-bold">300 Leads</td></tr>
+                                <tr><td class="metric-label">Quality</td><td class="text-center text-danger">Mixed/Junk</td><td class="text-end val-after">Qualified</td></tr>
+                            </table>
+                        </div>
+                        <p class="small text-muted mb-0"><i class="fas fa-filter text-primary me-1"></i> Filtered out 40% junk leads to focus on paying customers.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card-custom h-100">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div><span class="badge bg-primary mb-2">Google Ads</span><h4 class="h5 fw-bold mb-0">Fixing Broken Campaigns</h4><small class="text-muted">Service Industry</small></div>
+                            <div class="text-end"><h3 class="fw-bold text-success mb-0">6x</h3><small class="text-muted">Volume</small></div>
+                        </div>
+                        <div class="p-3 rounded mb-3 bg-alt">
+                            <table class="comparison-table">
+                                <tr><td class="text-muted">Metric</td><td class="text-center">Before</td><td class="text-end">After</td></tr>
+                                <tr><td class="metric-label">Budget</td><td class="text-center">5jt</td><td class="text-end fw-bold">5jt (Same)</td></tr>
+                                <tr><td class="metric-label">Leads/Mo</td><td class="text-center val-before">5 Leads</td><td class="text-end val-after">30 Leads</td></tr>
+                                <tr><td class="metric-label">Efficiency</td><td class="text-center val-before">High CPA</td><td class="text-end val-after">+500% Volume</td></tr>
+                            </table>
+                        </div>
+                        <p class="small text-muted mb-0"><i class="fas fa-chart-line text-success me-1"></i> Drastically lowered Cost Per Lead by optimizing keywords.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-alt">
+        <div class="container" data-aos="fade-up">
+            <h2 class="fw-bold text-center mb-5">What Clients Say</h2>
+            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="text-center mx-auto" style="max-width: 700px;">
+                            <div class="mb-4 text-warning"><i class="fas fa-star fa-2x"></i><i class="fas fa-star fa-2x"></i><i class="fas fa-star fa-2x"></i><i class="fas fa-star fa-2x"></i><i class="fas fa-star fa-2x"></i></div>
+                            <h4 class="fst-italic mb-4">"Yos fixed our tracking issues in 2 days. Our ROAS went from 2x to 8x within a month. Highly recommended!"</h4>
+                            <h6 class="fw-bold">Owner, Fashion Brand</h6>
+                            <small class="text-muted">Jakarta</small>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="text-center mx-auto" style="max-width: 700px;">
+                            <div class="mb-4 text-warning"><i class="fas fa-star fa-2x"></i><i class="fas fa-star fa-2x"></i><i class="fas fa-star fa-2x"></i><i class="fas fa-star fa-2x"></i><i class="fas fa-star fa-2x"></i></div>
+                            <h4 class="fst-italic mb-4">"Finally found a marketer who understands data. The Looker Studio report he built gave us total clarity on our spend."</h4>
+                            <h6 class="fw-bold">Marketing Director, Service Company</h6>
+                            <small class="text-muted">Surabaya</small>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon bg-dark rounded-circle p-3" aria-hidden="true"></span></button>
+                <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next"><span class="carousel-control-next-icon bg-dark rounded-circle p-3" aria-hidden="true"></span></button>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-5">
+        <div class="container py-4">
+            <h2 class="fw-bold text-center mb-5" data-aos="fade-up">My Expertise</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-custom">
+                        <div class="mb-3 text-primary"><i class="fas fa-robot fa-2x"></i></div>
+                        <h4 class="h6 fw-bold">Google Ads AI & OCT</h4>
+                        <p class="small text-muted mb-0">Specialist in <strong>Offline Conversion Tracking (OCT)</strong> & AI-Powered Campaigns (PMax/Demand Gen).</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-custom">
+                        <div class="mb-3 text-success"><i class="fas fa-chart-line fa-2x"></i></div>
+                        <h4 class="h6 fw-bold">Data Visualization</h4>
+                        <p class="small text-muted mb-0">Building automated dashboards with <strong>Looker Studio</strong> for real-time insights.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-custom">
+                        <div class="mb-3 text-warning"><i class="fas fa-brain fa-2x"></i></div>
+                        <h4 class="h6 fw-bold">AI Strategy</h4>
+                        <p class="small text-muted mb-0">Leveraging <strong>Gemini AI</strong> for advanced ad copywriting & audience analysis.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card-custom">
+                        <div class="mb-3 text-info"><i class="fas fa-code fa-2x"></i></div>
+                        <h4 class="h6 fw-bold">Advanced Tech</h4>
+                        <p class="small text-muted mb-0">Flawless setup of GTM, GA4, CAPI & Python for data analysis.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certificates" class="py-5 bg-alt">
+        <div class="container py-4">
+            <h2 class="fw-bold text-center mb-5" data-aos="fade-up">Credentials</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                    <div class="card card-custom h-100 p-4 border-0 shadow-sm">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="rounded-circle bg-primary bg-opacity-10 p-3 text-primary me-3">
+                                <i class="fas fa-certificate fa-lg"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-0">Digital Guru Module I</h6>
+                                <small class="text-muted">Driving Brand Awareness</small>
+                            </div>
+                        </div>
+                        <span class="badge bg-primary align-self-start">Google Elite Certified</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card card-custom h-100 p-4 border-0 shadow-sm">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="rounded-circle bg-primary bg-opacity-10 p-3 text-primary me-3">
+                                <i class="fas fa-chart-line fa-lg"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-0">Digital Guru Module II</h6>
+                                <small class="text-muted">Driving Sales & Lead Gen</small>
+                            </div>
+                        </div>
+                        <span class="badge bg-primary align-self-start">Google Elite Certified</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                     <div class="card card-custom h-100 p-4 border-0 shadow-sm">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="rounded-circle bg-primary bg-opacity-10 p-3 text-primary me-3">
+                                <i class="fab fa-google fa-lg"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-0">Google Ads Specialist</h6>
+                                <small class="text-muted">Search, Video, Display</small>
+                            </div>
+                        </div>
+                        <span class="badge bg-primary align-self-start">Skillshop Verified</span>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-up">
+                    <div class="card card-custom h-100 p-4 border-0 shadow-sm">
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-database fa-2x text-warning me-3"></i>
+                            <div>
+                                <h6 class="fw-bold mb-0">RevoU Data Analyst</h6>
+                                <small class="text-muted">Certified Associate in Data Analytics</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-up">
+                    <div class="card card-custom h-100 p-4 border-0 shadow-sm">
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-language fa-2x text-success me-3"></i>
+                            <div>
+                                <h6 class="fw-bold mb-0">EF English Score: 72</h6>
+                                <small class="text-muted">C2 Proficient (Professional Level)</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container" data-aos="fade-up">
+            <h2 class="fw-bold text-center mb-5">FAQ</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item mb-2">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    Do you handle Offline Conversions (OCT)?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted small">
+                                    Yes. I specialize in setting up OCT to feed real sales data back into Google Ads, training the AI to find higher-quality leads.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item mb-2">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    What reporting tools do you use?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted small">
+                                    I build custom dashboards using <strong>Google Looker Studio</strong> connected to GA4 & Ads, so you can see your ROI in real-time.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 text-white text-center" style="background-color: #0F172A;">
+        <div class="container">
+            <h2 class="fw-bold mb-4">Ready to scale?</h2>
+            <a href="https://wa.me/6287887046946?text=Halo%20Yos,%20saya%20tertarik%20dengan%20jasa%20Anda.%20Boleh%20diskusi?" class="btn btn-primary btn-lg border-0 shadow-lg fw-bold px-5" style="background-color: var(--accent);">Chat on WhatsApp</a>
+            <div class="mt-5 opacity-50 small">
+                &copy; 2026 Yos Valiandy. All Rights Reserved.
+            </div>
+        </div>
+    </section>
+
+    <button class="theme-toggle" id="themeToggle" title="Toggle Dark/Light Mode">
+        <i class="fas fa-moon"></i>
+    </button>
+    <a href="https://wa.me/6287887046946?text=Halo%20Yos,%20saya%20tertarik%20dengan%20jasa%20Anda.%20Boleh%20diskusi?" target="_blank" class="floating-wa" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Init Animation
+        AOS.init({ duration: 800, once: true });
+
+        // Dark Mode Logic
+        const toggleBtn = document.getElementById('themeToggle');
+        const icon = toggleBtn.querySelector('i');
+        const html = document.documentElement;
+
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            html.setAttribute('data-theme', 'dark');
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        }
+
+        toggleBtn.addEventListener('click', () => {
+            if (html.getAttribute('data-theme') === 'dark') {
+                html.setAttribute('data-theme', 'light');
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            }
+        });
+    </script>
+</body>
+</html>
